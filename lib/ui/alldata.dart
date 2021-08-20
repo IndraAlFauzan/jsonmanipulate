@@ -81,7 +81,7 @@ class _HomeState extends State<AllDataPage> {
                             Padding(
                               padding: const EdgeInsets.all(8.0),
                               child: Text(
-                                  'Type : ' + datamdl[build].tags.toString(),
+                                  'Type : ' + datamdl[build].tags!.join(' , '),
                                   style: const TextStyle(fontSize: 20)),
                             ),
                             Padding(

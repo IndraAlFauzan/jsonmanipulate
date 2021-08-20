@@ -76,7 +76,8 @@ class _HomeState extends State<Furniture> {
                             Padding(
                               padding: const EdgeInsets.all(8.0),
                               child: Text(
-                                  'Type : ' + datamdl[build].tags.toString(),
+                                  'Type : ' +
+                                      datamdl[build].tags!.join().toString(),
                                   style: const TextStyle(fontSize: 20)),
                             ),
                             Padding(
