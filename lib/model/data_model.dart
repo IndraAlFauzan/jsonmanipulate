@@ -1,10 +1,14 @@
 
 import 'dart:convert';
 
+import 'package:json_annotation/json_annotation.dart';
+
+part 'data_model.g.dart';
+
 List<DataModel> dataFromJson(String str) => List<DataModel>.from(json.decode(str).map((x) => DataModel.fromJson(x)));
 
 String dataToJson(List<DataModel> data) => json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
-
+@JsonSerializable()
 class DataModel {
     DataModel({
         this.inventoryId,

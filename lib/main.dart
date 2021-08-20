@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:test2/navibar.dart';
 import 'package:test2/ui/home.dart';
 import 'package:get/get.dart';
 
@@ -16,7 +17,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const Home(),
+      home: const Navigation(),
     );
   }
 }

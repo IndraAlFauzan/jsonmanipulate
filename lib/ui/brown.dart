@@ -5,16 +5,16 @@ import 'package:test2/constant.dart';
 import 'package:test2/model/data_model.dart';
 import 'package:test2/service/serv.dart';
 
-class Home extends StatefulWidget {
-  const Home({Key? key}) : super(key: key);
+class Brow extends StatefulWidget {
+  const Brow({Key? key}) : super(key: key);
 
   @override
   _HomeState createState() => _HomeState();
 }
 
-class _HomeState extends State<Home> {
+class _HomeState extends State<Brow> {
   List<DataModel> datamdl = [];
-  String query = 'electronic';
+  String query = 'brown';
 
   @override
   void initState() {

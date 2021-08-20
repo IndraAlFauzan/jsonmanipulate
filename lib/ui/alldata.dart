@@ -4,17 +4,18 @@ import 'package:flutter/painting.dart';
 import 'package:test2/constant.dart';
 import 'package:test2/model/data_model.dart';
 import 'package:test2/service/serv.dart';
+import 'package:test2/ui/searchwidget.dart';
 
-class Home extends StatefulWidget {
-  const Home({Key? key}) : super(key: key);
+class AllDataPage extends StatefulWidget {
+  const AllDataPage({Key? key}) : super(key: key);
 
   @override
   _HomeState createState() => _HomeState();
 }
 
-class _HomeState extends State<Home> {
+class _HomeState extends State<AllDataPage> {
   List<DataModel> datamdl = [];
-  String query = 'electronic';
+  String query = '';
 
   @override
   void initState() {
@@ -34,12 +35,16 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     Size _size = MediaQuery.of(context).size;
     return Scaffold(
-        appBar: AppBar(
-          title: Text('data'),
-        ),
-        body: Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: ListView.builder(
+      appBar: AppBar(
+        title: Text('data'),
+      ),
+      body: Column(
+        children: [
+          buildSearch(),
+          Expanded(
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: ListView.builder(
                 itemCount: datamdl.length,
                 itemBuilder: (context, build) {
                   return Card(
@@ -95,6 +100,24 @@ class _HomeState extends State<Home> {
                           ],
                         ),
                       ));
-                })));
+                },
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget buildSearch() =>
+      SearchWidget(text: query, onChanged: search, hintText: 'Search ');
+
+  void search(String query) async {
+    final search = await Serv.readJson(query);
+
+    setState(() {
+      query = query;
+      datamdl = search;
+    });
   }
 }

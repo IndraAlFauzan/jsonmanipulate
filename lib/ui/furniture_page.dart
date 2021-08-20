@@ -5,14 +5,14 @@ import 'package:test2/constant.dart';
 import 'package:test2/model/data_model.dart';
 import 'package:test2/service/serv.dart';
 
-class Home extends StatefulWidget {
-  const Home({Key? key}) : super(key: key);
+class Furniture extends StatefulWidget {
+  const Furniture({Key? key}) : super(key: key);
 
   @override
   _HomeState createState() => _HomeState();
 }
 
-class _HomeState extends State<Home> {
+class _HomeState extends State<Furniture> {
   List<DataModel> datamdl = [];
   String query = 'electronic';
 
@@ -77,6 +77,13 @@ class _HomeState extends State<Home> {
                               padding: const EdgeInsets.all(8.0),
                               child: Text(
                                   'Type : ' + datamdl[build].tags.toString(),
+                                  style: const TextStyle(fontSize: 20)),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Text(
+                                  'Purchase at : ' +
+                                      datamdl[build].purchasedAt.toString(),
                                   style: const TextStyle(fontSize: 20)),
                             ),
                             Padding(
